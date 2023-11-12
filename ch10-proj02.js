@@ -143,5 +143,35 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  
+  // Function to populate scene dropdown
+  function populateScenesList(sceneListDropdown, data, actIndex) {
+    var optionElement = document.createElement("option");
+    optionElement.textContent = "Choose a Scene";
+    optionElement.id = -1;
+    sceneListDropdown.appendChild(optionElement);
+
+    console.log("andar aage");
+    console.log(data.acts[actIndex].name);
+    for (var j = 0; j < data.acts[actIndex].scenes.length; j++) {
+      var optionElement = document.createElement("option");
+      optionElement.textContent = data.acts[actIndex].scenes[j].name;
+      optionElement.id = j;
+      sceneListDropdown.appendChild(optionElement);
+    }
+  }
+
+  // Function to populate player dropdown
+  function populatePlayerList(playerListDropdown, personaData) {
+    var optionElement = document.createElement("option");
+    optionElement.textContent = "All Players";
+    optionElement.value = "0";
+    playerListDropdown.appendChild(optionElement);
+
+    for (var j = 0; j < personaData.length; j++) {
+      var optionElement = document.createElement("option");
+      optionElement.textContent = personaData[j].player;
+      optionElement.value = personaData[j].player;
+      playerListDropdown.appendChild(optionElement);
+    }
+  }
 });
